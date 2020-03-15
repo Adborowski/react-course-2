@@ -1,0 +1,33 @@
+var nameVar = "Adamms";
+console.log("nameVar: " + nameVar);
+"use strict";
+
+console.log("[APP.JS]");
+
+var app = {
+    title: "Indecision",
+    subtitle: "Delegate your thinking!",
+    options: ['One', 'Two']
+};
+
+var template = React.createElement("div", null, React.createElement("h2", null, app.title), app.subtitle && React.createElement("p", null, app.subtitle), app.options && app.options.length > 0 ? React.createElement("p", null, "Here are your options") : React.createElement("p", null, "No options found"), React.createElement("ol", null, React.createElement("li", null, "One"), React.createElement("li", null, "Two")));
+
+// set up the wrapper using HTML ID
+var appRoot = document.getElementById("app");
+
+var user = {
+    name: "Alam Torowski",
+    age: 25,
+    location: "Lopenhagen"
+};
+
+function getLocation(location) {
+
+    if (location) {
+        return React.createElement("p", null, "Location: ", location);
+    }
+}
+
+var templateTwo = React.createElement("div", null, React.createElement("h1", null, user.name ? user.name : "Anonymous"), React.createElement("p", null, user.age && user.age >= 18 ? "Age: " + user.age : ""), getLocation(user.location));
+
+ReactDOM.render(template, appRoot);
