@@ -1,20 +1,19 @@
 ﻿.header{
-    background-color: #20222b;
+    background-color: $off-black;
     color: white;
     margin-bottom: 4.8rem;
-    padding: 1.6rem;
-    border-radius: 0.5rem;
+    padding: $space-1;
 }
 
 // BEM modifier
 .header__title{
-    font-size: 3.2rem;
+    font-size: $space-2;
     margin: 0;
 }
 
 .header__subtitle{
-    color: #a5afd7;
-    font-size: 1.6rem;
+    color: $off-white;
+    font-size: $space-1;
     font-weight: 500;
     margin: 0;
 }

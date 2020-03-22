@@ -116,18 +116,24 @@ class IndecisionApp extends React.Component{
 
             <div>
                 <Header title={title} subtitle={subtitle}/>
-                <Action 
-                    hasOptions={this.state.options.length > 0}
-                    handlePick={this.handlePick}
-                />
-                <Options 
-                    options={this.state.options}
-                    handleDeleteOptions={this.handleDeleteOptions} // this passes down the function as a props
-                    handleDeleteOption={this.handleDeleteOption} // we're starting a prop chain here, later we pass on to option
-                />
-                <AddOption
-                    handleAddOption={this.handleAddOption}
-                />
+                
+                <div className="container">
+
+                    <Action 
+                        hasOptions={this.state.options.length > 0}
+                        handlePick={this.handlePick}
+                    />
+                    <Options 
+                        options={this.state.options}
+                        handleDeleteOptions={this.handleDeleteOptions} // this passes down the function as a props
+                        handleDeleteOption={this.handleDeleteOption} // we're starting a prop chain here, later we pass on to option
+                    />
+                    <AddOption
+                        handleAddOption={this.handleAddOption}
+                    />
+                
+                </div>
+                
                 <OptionModal
                     selectedOption={this.state.selectedOption}
                     handleClearSelectedOption = {this.handleClearSelectedOption}
