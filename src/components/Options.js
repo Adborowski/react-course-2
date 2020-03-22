@@ -5,7 +5,15 @@ import Option from './Option.js';
 const Options = (props) => (
 
         <div>
-        <button onClick={props.handleDeleteOptions}>Remove All</button>
+
+            <button 
+            onClick={props.handleDeleteOptions}
+            className="button button--link"
+            >
+                Remove All
+            
+            </button>
+
         {!props.options.length && <p>Please add an item</p>}
         <p>{props.options.length}</p>
             <ol>
