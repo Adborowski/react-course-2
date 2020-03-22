@@ -1,0 +1,11 @@
+﻿html{
+    font-size: 62.5%;   // this is to turn 1REM from 16px to 10px so we're working with base10
+}                       // seems dangerous; how is it in breakpoints?
+
+body{
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+h1{
+    font-size: 1.6rem;
+}
