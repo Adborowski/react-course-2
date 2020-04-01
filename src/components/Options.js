@@ -6,16 +6,24 @@ const Options = (props) => (
 
         <div>
 
-            <button 
-            onClick={props.handleDeleteOptions}
-            className="button button--link"
-            >
-                Remove All
-            
-            </button>
+            <div className="widget-header">
 
-        {!props.options.length && <p>Please add an item</p>}
-        <p>{props.options.length}</p>
+                <h3 className="widget-header__title">Your options</h3>
+
+                <button 
+                onClick={props.handleDeleteOptions}
+                className="button button--link"
+                >
+                    Remove All
+                
+                </button>
+            
+            </div>
+
+
+            {!props.options.length && <p className="widget__message">Please add an item</p>}
+
+            <p>{props.options.length}</p>
             <ol>
                 {props.options.map((option, index) => (
                     <Option 
