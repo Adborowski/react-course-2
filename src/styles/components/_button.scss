@@ -6,13 +6,20 @@
     color: white;
     font-weight: bold;
     font-size: $space-2;
-    margin-bottom: $space-2;
+    margin-bottom: $space-0;
     padding: $space-1;
+
+    @media screen and (min-width: $bp-1){
+        margin-bottom: $space-2;
+    }
+    
 }
 
 .big-button:disabled{
     opacity: 0.5;
 }
+
+
 
 .button{
     background-color: $color-highlight;
