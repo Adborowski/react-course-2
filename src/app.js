@@ -8,6 +8,7 @@ import {BrowserRouter, Route, Switch, Link, NavLink} from 'react-router-dom';
 import AppRouter from './routers/AppRouter';
 
 
+
 const appRoot = document.getElementById("app");
 
 ReactDOM.render(<AppRouter/>, appRoot); // you can straight up stick your component JSX tag in there
