@@ -28,6 +28,7 @@ module.exports = {
     },
     devtool: 'cheap-module-eval-source-map',
     devServer: {
-        contentBase: path.join(__dirname, "public") // pasted from above
+        contentBase: path.join(__dirname, "public"), // pasted from above
+        historyApiFallback: true
     }
 }
