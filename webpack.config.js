@@ -7,7 +7,7 @@ console.log(path.join(__dirname, "public"));
 
 // output path MUST BE ABSOLUTE
 module.exports = {
-    entry: './src/playground/redux-101.js', // relative path
+    entry: './src/playground/redux-expensify.js', // relative path
     output: {
         path: path.join(__dirname, "public"), // absolute path
         filename: 'bundle.js',
