@@ -200,7 +200,7 @@ store.dispatch(sortByAmount());
 // store.dispatch(setStartDate(125));
 // store.dispatch(setEndDate(1250));
 
-// store.dispatch(setTextFilter('cOfFeE'));
+// store.dispatch(setTextFilter('water'));
 // store.dispatch(setTextFilter(''));
 // store.dispatch(setTextFilter('rEnT'));
 

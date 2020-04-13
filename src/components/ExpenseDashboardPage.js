@@ -1,8 +1,17 @@
 ﻿import React from 'react';
+import ExpenseList from './ExpenseList';
+import {connect} from 'react-redux';
 
 // since we're using the arrow function, this is a stateless functional component. we're using normal brackets (xyz) as shorthand for {return(xyz)}
 const ExpenseDashboardPage = () => (
-    <div className="component">This is my dashboard component.</div>
+    <ExpenseList/>
 );
 
-export default ExpenseDashboardPage;
+const mapStateToProps = (state)=>{
+    return {
+        expenses: state.expenses,
+        filters: state.filters
+    };
+};
+
+export default connect(mapStateToProps)(ExpenseList);

@@ -4,11 +4,38 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import '../node_modules/normalize.css/normalize.css' // css reset
 import './styles/styles.scss';
-import {BrowserRouter, Route, Switch, Link, NavLink} from 'react-router-dom';
 import AppRouter from './routers/AppRouter';
+import configureStore from './store/configureStore';
+import {addExpense, removeExpense, editExpense} from './actions/expenses';
+import {setTextFilter, sortByAmount, sortByDate, setStartDate, setEndDate} from './actions/filters';
+import {getVisibleExpenses} from './selectors/expenses';
+import {Provider} from 'react-redux';
+
+const store = configureStore();
 
 
+store.subscribe(()=>{
+    const state = store.getState();
+    const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
+    console.log(visibleExpenses);
+})
+
+store.dispatch(addExpense({description: 'water bill', notes:'paid this for water', amount: 240, createdAt: 600}));
+store.dispatch(addExpense({description: 'gas bill', notes:'paid this for gas', amount: 320, createdAt: 700}));
+
+store.dispatch(setTextFilter("water"));
+
+setTimeout(()=>{
+    store.dispatch(setTextFilter("gas"));
+}, 3000)
 
 const appRoot = document.getElementById("app");
 
-ReactDOM.render(<AppRouter/>, appRoot); // you can straight up stick your component JSX tag in there
+const jsx = (
+    <Provider store={store}> 
+        <AppRouter/>
+    </Provider>
+    
+)
+
+ReactDOM.render(jsx, appRoot); // you can straight up stick your component JSX tag in there
