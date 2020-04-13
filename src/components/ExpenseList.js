@@ -1,4 +1,7 @@
 ﻿import React from 'react';
+import {connect} from 'react-redux';
+import ExpenseListItem from './ExpenseListItem';
+import selectExpenses from '../selectors/expenses'
 
 // the props here are dependent on Provider and Connect from React-Redux
 // for more, see app.js and ExpenseDashboardPage.js
@@ -6,9 +9,19 @@
 const ExpenseList = (props) => (
     <div>
         <h1>Expense List</h1>
-        {props.filters.text}
-        {props.expenses.length}
+        <ol>
+            {props.expenses.map((expense, index)=>(
+                <ExpenseListItem key = {expense.id} {...expense}/>
+            ))}
+        
+        </ol>
     </div>
 )
 
-export default ExpenseList;
+const mapStateToProps = (state) =>{
+    return {
+        expenses: selectExpenses(state.expenses, state.filters)
+    };
+};
+
+export default connect(mapStateToProps)(ExpenseList);
