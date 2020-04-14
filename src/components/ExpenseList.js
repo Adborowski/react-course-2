@@ -7,7 +7,7 @@ import selectExpenses from '../selectors/expenses'
 // for more, see app.js and ExpenseDashboardPage.js
 
 const ExpenseList = (props) => (
-    <div>
+    <div className="component">
         <h1>Expense List</h1>
         <ol>
             {props.expenses.map((expense, index)=>(

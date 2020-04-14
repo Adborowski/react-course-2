@@ -19,16 +19,10 @@ store.subscribe(()=>{
     console.log(visibleExpenses);
 })
 
-store.dispatch(addExpense({description: 'water bill', notes:'paid this for water', amount: 240, createdAt: 600}));
-store.dispatch(addExpense({description: 'gas bill', notes:'paid this for gas', amount: 320, createdAt: 700}));
-store.dispatch(addExpense({description: 'car bill', notes:'paid this for the car', amount: 600, createdAt: 800}));
-store.dispatch(addExpense({description: 'tea', notes:'paid this for tea', amount: 420, createdAt: 900}));
-
-store.dispatch(setTextFilter("water"));
-
-setTimeout(()=>{
-    store.dispatch(setTextFilter("bill"));
-}, 3000)
+store.dispatch(addExpense({description: 'water bill', notes:'paid this for water', amount: 4500, createdAt: 600}));
+store.dispatch(addExpense({description: 'gas bill', notes:'paid this for gas', amount: 3200, createdAt: 400}));
+store.dispatch(addExpense({description: 'car bill', notes:'paid this for the car', amount: 2000, createdAt: 800}));
+store.dispatch(addExpense({description: 'tea', notes:'paid this for tea', amount: 4200, createdAt: 200}));
 
 const appRoot = document.getElementById("app");
 

@@ -3,14 +3,12 @@
     textFilter
 });
 
-export const sortByAmount = (amount = undefined) => ({
+export const sortByAmount = () => ({
     type: 'SORT_BY_AMOUNT',
-    amount
 });
 
-export const sortByDate = (date = undefined) => ({
+export const sortByDate = () => ({
     type: 'SORT_BY_DATE',
-    date
 });
 
 export const setStartDate = (startDate = undefined) => ({ // there is actually no need for the default - undefined parameters already have that default
