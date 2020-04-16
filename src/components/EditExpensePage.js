@@ -5,6 +5,11 @@ const EditExpensePage = (props) => {
 
     console.log(props);
 
+    onSubmit = (expense) => {
+        console.log("X");
+        console.log(expense);
+    }
+
     return (
         <div className="component">This is EditExpensePage component. You're editing item {props.match.params.id}.</div>
     );
