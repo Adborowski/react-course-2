@@ -13,7 +13,7 @@ export const addExpense = ({description = '', notes = '', amount = 0, createdAt 
     }
 });
 
-export const removeExpense = ({id}) => ({
+export const removeExpense = (id) => ({
     type: 'REMOVE_EXPENSE',
     id
 })

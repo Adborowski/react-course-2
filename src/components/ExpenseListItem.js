@@ -1,15 +1,19 @@
 ﻿import React from 'react';
-import {connect} from 'react-redux';
-import {removeExpense} from '../actions/expenses';
+import {Link} from 'react-router-dom';
 
-const ExpenseListItem = ({id, description, amount, createdAt, dispatch}) => (
+const ExpenseListItem = ({id, description, amount, createdAt, dispatch}) => {
+    
+    return (
     <div className="expenseListItem">
-        {description} - ${amount} - created {createdAt}
-        <button onClick={ () => {dispatch(removeExpense({id})) } }>Remove Expense</button>
+
+        <Link to={`/edit/${id}`}>
+            <p>{description}</p>
+        </Link>
+
+        ${amount} - created {createdAt}
+
     </div>
-)
+    )
+}
 
-export default connect()(ExpenseListItem) // without an arg in the first bracket, all it does is give access to store dispatch
-
-
-//export default connect(mapStateToProps)(ExpenseListFilters);
+export default ExpenseListItem // without an arg in the first bracket, all it does is give access to store dispatch

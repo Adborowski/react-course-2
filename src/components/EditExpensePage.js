@@ -1,18 +1,41 @@
 ﻿import React from 'react';
+import {connect} from 'react-redux';
+import ExpenseForm from './ExpenseForm';
+import {editExpense, removeExpense} from '../actions/expenses';
 
 // since we're using the arrow function, this is a stateless functional component. we're using normal brackets (xyz) as shorthand for {return(xyz)}
 const EditExpensePage = (props) => {
 
-    console.log(props);
-
-    onSubmit = (expense) => {
-        console.log("X");
-        console.log(expense);
-    }
+    console.log("PARAMS ID: "+props.match.params.id);
 
     return (
-        <div className="component">This is EditExpensePage component. You're editing item {props.match.params.id}.</div>
+        <div>
+        <ExpenseForm
+        expense = {props.expense}
+        onSubmit={(expense) => {
+            console.log('updated', expense);
+            props.dispatch(editExpense(props.expense.id, expense));
+            props.history.push('/');
+        }}
+        />
+
+        <button onClick={ () => {
+            props.dispatch(removeExpense(props.expense.id));
+            props.history.push('/');
+        }}>
+        Remove Expense</button>
+        
+        </div>
     );
 }
 
-export default EditExpensePage;
+const mapStateToProps = (state, props) => {
+
+    return {
+        expense: state.expenses.find((expense)=>{
+            return expense.id === props.match.params.id
+        })
+    }
+}
+
+export default connect(mapStateToProps)(EditExpensePage);
